@@ -1,0 +1,19 @@
+question,answer
+since when the device is up or router uptime,show version
+what is the vesrion,show version 
+how many interfaces  are up,show ip int br
+how many routes are there , show route
+please trace , trace ip source loopback  (you need to check)
+how to check BGP status, show bgp summary
+how to check bgp neighbour, show bgp summary
+how to check/running isis , show isis neighbour
+how to check ospf , show ospf neighbour
+how to check isis status, show isis neighbour
+how to check mpls, show mpls ldp neighbour
+how to check bgp configuration, show running router bgp
+router uptime,show version
+to check mpls running or not , show running mpls ldp
+to check the isis running or not , show isis neighbour
+to check bgp running or not , show running router bgp
+to check the loopback status,show ip interface brief 
+to check bgp status, show bgp all all summary
