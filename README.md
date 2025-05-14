@@ -1,4 +1,3 @@
-# AI-Driven-Command-Execution-and-Response-System-for-Network-Devices
 AI-Driven Command Execution and Response System
 
 This project is an AI-powered application designed for executing SSH commands on remote devices and interpreting their outputs. It leverages Streamlit for the user interface, DSPy for managing datasets and integrating machine learning models, and Scrapli for SSH communication. The application also integrates LLaMA (Large Language Model Meta AI) as its foundation model for natural language understanding and generation.
@@ -62,40 +61,25 @@ Modify the API endpoint in the code if necessary.
 
 Compatibility Notes
 
-This project is designed for Python 3.12.10, but it may also work in Python 3.11 if compatibility issues arise. Below are key considerations for Python 3.12 compatibility:
+This project is designed for Python 3.12.10, but it may also work in Python 3.11 if compatibility issues arise.
 
+
+Key Considerations for Python 3.12 Compatibility
 
 Streamlit (1.44.1): Fully supports Python 3.12.
 Pandas (2.2.2): Fully compatible.
-DSPy (0.1.5) and dspy-ai (2.4.5): Ensure these versions work correctly in your environment, as they are less commonly used libraries. If issues arise, consider downgrading to Python 3.11.
-Scrapli (2023.7.30): This version supports Python 3.12, but upgrading to 2023.10.30 is recommended for improvements:
+DSPy (0.1.5) and dspy-ai (2.4.5): Ensure these versions work correctly in your environment.
+Scrapli (2023.7.30): Compatible, but upgrading to 2023.10.30 is recommended:
 bash
 Copy Code
-pip install --upgrade scrapli[ssh]
+pip install --upgrade scrapli\[ssh\]
 Requests (2.32.3): Fully compatible.
 Ollama (0.3.2): Works with Python 3.12, but confirm compatibility with your LLaMA API setup.
-
-Verifying Compatibility
-
-To ensure all libraries are working correctly in Python 3.12, run:
-
-
-bash
-Copy Code
-pip check
-
-If any issues arise, consider downgrading to Python 3.11:
-
-
-bash
-Copy Code
-pyenv install 3.11.10
-pyenv global 3.11.10
 
 
 Usage
 
-Start the Application: Run the following command to launch the Streamlit app:
+Start the Application:
 
 bash
 Copy Code
@@ -112,65 +96,42 @@ Provide a summarized, human-readable interpretation of the command output using 
 
 File Structure
 
+plaintext
 Copy Code
 project/
-├── sample.csv                 # Historical dataset (user-provided)
+├── sample.csv                 # Historical dataset \(user-provided\)
 ├── script.py                  # Main application code
 ├── requirements.txt           # Dependencies
 ├── README.md                  # Project documentation
 
 
-Key Components
-
-Libraries Used
-
-Streamlit: For building the user interface.
-Pandas: For loading and manipulating the dataset.
-DSPy: For dataset and language model management.
-Requests: For sending HTTP requests to the LLaMA API.
-Scrapli: For executing SSH commands on remote devices.
-Ollama: For integrating the LLaMA language model.
-
-Foundation Models
-
-LLaMA 3.1: Used for generating natural language answers to user queries.
-LLaMA 3.2 (1b-instruct-fp16): Used for interpreting router command outputs and summarizing them.
-
-Dataset
-
-The sample.csv file is used to train and test the system. It is divided into training and testing subsets in the code.
-
-
 Example CSV File (sample.csv)
 
-csv
-Copy Code
-question,answer
-"What is the CPU usage?",show processes cpu
-"What interfaces are up?",show ip interface brief
+question	answer
+What is the CPU usage?	show processes cpu
+What interfaces are up?	show ip interface brief
 
 
 Troubleshooting
 
-Missing Dependencies: If you encounter missing dependencies, ensure all required packages are installed using:
+Common Issues and Solutions
 
+Missing Dependencies:
+
+Ensure all required packages are installed:
 bash
 Copy Code
 pip install -r requirements.txt
 LLaMA API Issues:
 
-Verify that the LLaMA API server is running on http://localhost:11434.
-Check the API endpoint in the query_llama\(\) function.
+Verify the LLaMA API server is running at http://localhost:11434.
 SSH Connection Errors:
 
-Ensure the SSH credentials (hostname, username, and password) are correct.
-Check the network connectivity to the remote device.
-Dataset Issues:
-
-Ensure sample.csv is present in the working directory and correctly formatted.
+Ensure SSH credentials (hostname, username, and password) are correct.
+Check network connectivity to the remote device.
 Python Compatibility:
 
-If errors occur in Python 3.12, try downgrading to Python 3.11 to resolve compatibility issues:
+If errors occur in Python 3.12, consider downgrading to Python 3.11:
 bash
 Copy Code
 pyenv install 3.11.10
